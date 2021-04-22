@@ -9,6 +9,7 @@ namespace Ball
         [SerializeField] private SpriteRenderer ballSprite;
         private Vector3 dir;
         public Transform BallTransform { get; private set; }
+        public Vector3 Direction { get; private set; }
 
         private void OnEnable()
         {
@@ -23,21 +24,34 @@ namespace Ball
         private void Start()
         {
             dir=Vector3.down;
+            Direction = dir;
+            StartCoroutine(MoveBall());
         }
 
-        private void Update()
+        
+
+        private IEnumerator MoveBall()
         {
-            transform.Translate(dir * (Time.deltaTime * 5f));
+            yield return new WaitForSeconds(1f);
+            do
+            {
+                transform.Translate(dir * (Time.deltaTime * 5f));
+                yield return null;
+            } while (true);
+            
+            yield return null;
         }
 
         public void ChangeDirection(Vector3 newDir)
         {
             dir = newDir;
+            Direction = newDir;
         }
 
         public void ChangeDirection(float value)
         {
             dir *= value;
+            Direction = dir;
         }
 
         public void ChangeColor(Color color)

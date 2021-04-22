@@ -21,9 +21,9 @@ namespace Ball
     public interface IBall
     {
         Transform BallTransform { get; }
+        Vector3 Direction { get; }
         void ChangeDirection(Vector3 newDir);
         void ChangeDirection(float value);
-
         void ChangeColor(Color color);
     }
 }

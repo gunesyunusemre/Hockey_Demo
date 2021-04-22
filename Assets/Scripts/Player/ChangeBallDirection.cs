@@ -18,8 +18,6 @@ namespace Player
 
         private void Update()
         {
-            //TODO: Check PC 
-            
             SetBall();
 
             if (!CheckTrigger())
