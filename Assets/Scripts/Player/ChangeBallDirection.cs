@@ -5,9 +5,15 @@ using UnityEngine;
 
 namespace Player
 {
+    public enum PlayerType
+    {
+        Player,
+        PC
+    }
+    
     public class ChangeBallDirection : MonoBehaviour
     {
-
+        [SerializeField] private PlayerType thisType;
         [SerializeField] private Transform leftPoint;
         [SerializeField] private Transform midPoint;
         [SerializeField] private Transform rightPoint;
@@ -56,7 +62,7 @@ namespace Player
             }else if (ballPosition.x >= leftPoint.position.x && ballPosition.x <= midPoint.position.x)
             {
                 var degreeVector = CalculateLeftDirection();
-                if (gameObject.name=="PC")
+                if (thisType==PlayerType.PC)
                     degreeVector.y *= -1;
                 ball.ChangeDirection(degreeVector);
                 //Debug.Log("Left Point");
@@ -64,7 +70,7 @@ namespace Player
             {
                 //Debug.Log("Right Point");//Right
                 var degreeVector = CalculateRightDirection();
-                if (gameObject.name=="PC")//Y direction different player
+                if (thisType==PlayerType.PC)//Y direction different player
                     degreeVector.y *= -1;
                 ball.ChangeDirection(degreeVector);
             }

@@ -7,7 +7,7 @@ namespace Player
 {
     public class ChangeBallColor : MonoBehaviour
     {
-        [SerializeField] private Color playerColor;
+        [SerializeField] private PlayerType thisType;
 
         [SerializeField] private Transform leftPoint;
         [SerializeField] private Transform rightPoint;
@@ -23,7 +23,7 @@ namespace Player
             if (!CheckTrigger())
                 return;
             
-            ball.ChangeColor(playerColor);
+            ball.ChangeType(thisType);
         }
         
         private void SetBall()

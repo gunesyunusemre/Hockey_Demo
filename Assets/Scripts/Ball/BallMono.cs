@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Player;
 using UnityEngine;
 
 namespace Ball
@@ -10,6 +11,7 @@ namespace Ball
         private Vector3 dir;
         public Transform BallTransform { get; private set; }
         public Vector3 Direction { get; private set; }
+        public PlayerType CurrentState { get; private set; }
 
         private void OnEnable()
         {
@@ -39,7 +41,6 @@ namespace Ball
                 yield return null;
             } while (true);
             
-            yield return null;
         }
 
         public void ChangeDirection(Vector3 newDir)
@@ -54,9 +55,18 @@ namespace Ball
             Direction = dir;
         }
 
-        public void ChangeColor(Color color)
+        public void ChangeType(PlayerType type)
         {
-            ballSprite.color = color;
+            CurrentState = type;
+            switch (type)
+            {
+                case PlayerType.Player:
+                    ballSprite.color=Color.blue;
+                    break;
+                case PlayerType.PC:
+                    ballSprite.color=Color.red;
+                    break;
+            }
         }
     }
 }
