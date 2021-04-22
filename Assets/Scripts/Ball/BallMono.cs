@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Hole;
 using Player;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace Ball
         {
             dir=Vector3.down;
             Direction = dir;
+            ChangeType(PlayerType.Grey);
             StartCoroutine(MoveBall());
         }
 
@@ -57,6 +59,7 @@ namespace Ball
 
         public void ChangeType(PlayerType type)
         {
+            HoleHelper.HoleList[0].IncreaseTurn();
             CurrentState = type;
             switch (type)
             {
@@ -65,6 +68,9 @@ namespace Ball
                     break;
                 case PlayerType.PC:
                     ballSprite.color=Color.red;
+                    break;
+                case  PlayerType.Grey:
+                    ballSprite.color=Color.gray;
                     break;
             }
         }

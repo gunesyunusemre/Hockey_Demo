@@ -35,22 +35,24 @@ namespace Manager
 
         public void SpawnBall()
         {
-            var instantiated =Instantiate(ball);
             switch (BallHelper.Ball.CurrentState)
             {
                 case PlayerType.Player:
-                    instantiated.transform.position = redSpawnPoint.position;
+                    BallHelper.Ball.BallTransform.position = redSpawnPoint.position;
+                    BallHelper.Ball.ChangeDirection(Vector3.up);
                     break;
                 case PlayerType.PC:
-                    instantiated.transform.position = blueSpawnPoint.position;
+                    BallHelper.Ball.BallTransform.position = blueSpawnPoint.position;
+                    BallHelper.Ball.ChangeDirection(Vector3.down);
                     break;
             }
+            BallHelper.Ball.ChangeType(PlayerType.Grey);
         }
 
         public void SpawnHole()
         {
             var instantiatedHole =Instantiate(hole);
-            var xPos = Random.Range(-2.5f, 2.5f);
+            var xPos = Random.Range(-2f, 2f);
             instantiatedHole.transform.position = new Vector3(xPos, 0, 0);
         }
     }

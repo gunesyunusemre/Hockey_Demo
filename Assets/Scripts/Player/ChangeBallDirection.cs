@@ -5,11 +5,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public enum PlayerType
-    {
-        Player,
-        PC
-    }
+    
     
     public class ChangeBallDirection : MonoBehaviour
     {
