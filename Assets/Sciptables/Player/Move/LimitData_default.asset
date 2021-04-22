@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b3cd415a01548c18da23e0f540ab1f9, type: 3}
-  m_Name: LimitData_maxDefault
+  m_Name: LimitData_default
   m_EditorClassIdentifier: 
-  value: 0
+  value: 2

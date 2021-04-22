@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 3154183531
     locked: 0
-  - name: Stcik
+  - name: Stick
     uniqueID: 2806748801
+    locked: 0
+  - name: Ball
+    uniqueID: 4106724173
     locked: 0
