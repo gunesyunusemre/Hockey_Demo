@@ -45,13 +45,13 @@ namespace Manager
 
         private void CheckWinner()
         {
-            if (redValue>=1)
+            if (redValue>=5)
             {
                 //Debug.Log("Red is Winner");
                 winText.text = "Red Win!";
                 winText.color=Color.red;
                 Time.timeScale = 0f;
-            }else if (blueValue>=1)
+            }else if (blueValue>=5)
             {
                 //Debug.Log("Blue is Winner");
                 winText.text = "Blue Win!";
