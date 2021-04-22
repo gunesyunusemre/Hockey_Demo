@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 namespace Ball
@@ -24,6 +25,7 @@ namespace Ball
         Vector3 Direction { get; }
         void ChangeDirection(Vector3 newDir);
         void ChangeDirection(float value);
-        void ChangeColor(Color color);
+        void ChangeType(PlayerType type);
+        PlayerType CurrentState { get; }
     }
 }
