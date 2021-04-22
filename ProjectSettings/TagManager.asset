@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3154183531
+    locked: 0
+  - name: Stcik
+    uniqueID: 2806748801
+    locked: 0
