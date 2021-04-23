@@ -10,13 +10,18 @@ namespace Manager
     {
         public static SpawnManager instance;
 
+        #region Variables
+
         [SerializeField] private GameObject ball;
         //Ball Spawn point
         [SerializeField] private Transform redSpawnPoint;
         [SerializeField] private Transform blueSpawnPoint;
 
         [SerializeField] private GameObject hole;
-        
+
+        #endregion
+
+        #region Monobehaviour Events
 
         private void Awake()
         {
@@ -32,6 +37,10 @@ namespace Manager
             //Spawn Hole
             SpawnHole();
         }
+
+        #endregion
+
+        #region Functions
 
         public void SpawnBall()
         {
@@ -55,5 +64,7 @@ namespace Manager
             var xPos = Random.Range(-2f, 2f);
             instantiatedHole.transform.position = new Vector3(xPos, 0, 0);
         }
+
+        #endregion
     }
 }

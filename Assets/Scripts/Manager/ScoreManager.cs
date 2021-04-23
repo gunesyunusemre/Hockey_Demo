@@ -9,13 +9,18 @@ namespace Manager
     {
         public static ScoreManager instance;
 
+        #region Variables
+
         [SerializeField] private TMP_Text redText;
         [SerializeField] private TMP_Text blueText;
         [SerializeField] private TMP_Text winText;
 
         [SerializeField] private int redValue=0;
         [SerializeField] private int blueValue = 0;
-        
+
+        #endregion
+
+        #region Monobehaviour Events
 
         private void Awake()
         {
@@ -25,6 +30,10 @@ namespace Manager
             }
             SetText();
         }
+
+        #endregion
+
+        #region Functions
 
         public void Goal(PlayerType type)
         {
@@ -65,5 +74,7 @@ namespace Manager
             redText.text = "Red: " + redValue;
             blueText.text = "Blue: " + blueValue;
         }
+
+        #endregion
     }
 }
