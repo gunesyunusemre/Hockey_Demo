@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using Ball;
 using Unity.Mathematics;
@@ -9,9 +10,11 @@ namespace Wall
     public class WallChangeBallDirection : MonoBehaviour
     {
         
-        IBall ball;
-        Vector3 ballPosition;
-        Vector3 ballLocalScale;
+        private IBall ball;
+        private Vector3 ballPosition;
+        private Vector3 ballLocalScale;
+
+        private bool isEnter=true;
         
         private void Update()
         {
@@ -20,10 +23,15 @@ namespace Wall
             if (!CheckTrigger())
                 return;
 
-            var dir = ball.Direction;
-            Debug.Log(dir);
-            dir.x *= -1;
+            if (!isEnter)
+                return;
+
+            StartCoroutine(CheckEnter());
             
+            var dir = ball.Direction;
+            
+            //Debug.Log(dir);
+            dir.x *= -1;
             ball.ChangeDirection(dir);
         }
         
@@ -36,11 +44,15 @@ namespace Wall
         
         private bool CheckTrigger()
         {
-            if (math.abs(transform.position.x-ballPosition.x) > 
-                transform.localScale.x/2f+ballLocalScale.x/2f)
-                return false;
+            return !(math.abs(transform.position.x-ballPosition.x) > 
+                     transform.localScale.x/2f+ballLocalScale.x/2f);
+        }
 
-            return true;
+        private IEnumerator CheckEnter()
+        {
+            isEnter = false;
+            yield return new WaitForSeconds(0.1f);
+            isEnter = true;
         }
         
         

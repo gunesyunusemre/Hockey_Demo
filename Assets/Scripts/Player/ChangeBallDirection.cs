@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Ball;
 using Unity.Mathematics;
 using UnityEngine;
@@ -14,9 +15,11 @@ namespace Player
         [SerializeField] private Transform midPoint;
         [SerializeField] private Transform rightPoint;
         
-        IBall ball;
-        Vector3 ballPosition;
-        Vector3 ballLocalScale;
+        private IBall ball;
+        private Vector3 ballPosition;
+        private Vector3 ballLocalScale;
+        
+        private bool isEnter=true;
 
         private void Update()
         {
@@ -25,6 +28,11 @@ namespace Player
             if (!CheckTrigger())
                 return;
 
+            if (!isEnter)
+                return;
+
+            StartCoroutine(CheckEnter());
+            
             //Dökümanda en sağ ve en sol şeklinde ifade edildiği için topun geliş yönü hesaba katılmamıştır.
             CheckBallPosition();
         }
@@ -47,6 +55,13 @@ namespace Player
                 return false;
 
             return true;
+        }
+        
+        private IEnumerator CheckEnter()
+        {
+            isEnter = false;
+            yield return new WaitForSeconds(0.1f);
+            isEnter = true;
         }
 
         private void CheckBallPosition()
