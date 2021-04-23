@@ -9,13 +9,19 @@ namespace Wall
 {
     public class WallChangeBallDirection : MonoBehaviour
     {
-        
+
+        #region Variables
+
         private IBall ball;
         private Vector3 ballPosition;
         private Vector3 ballLocalScale;
 
         private bool isEnter=true;
-        
+
+        #endregion
+
+        #region Monobehaviour Events
+
         private void Update()
         {
             SetBall();
@@ -34,7 +40,11 @@ namespace Wall
             dir.x *= -1;
             ball.ChangeDirection(dir);
         }
-        
+
+        #endregion
+
+        #region Functions
+
         private void SetBall()
         {
             ball = BallHelper.Ball;
@@ -54,12 +64,17 @@ namespace Wall
             yield return new WaitForSeconds(0.1f);
             isEnter = true;
         }
-        
-        
+
+        #endregion
+
+        #region Gizmos_Active
+
         private void OnDrawGizmos()
         {
             Gizmos.color=Color.green;
             Gizmos.DrawWireCube(transform.position,new Vector3(transform.localScale.x, transform.localScale.y));
         }
+
+        #endregion
     }
 }
