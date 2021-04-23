@@ -7,8 +7,15 @@ namespace Player
 {
     public class CheckBallForPlayer : MonoBehaviour
     {
+        #region Variables
+
         private IBall _ball;
         private Vector3 _ballPos;
+
+        #endregion
+
+        #region Monobehaviour Events
+
         private void Update()
         {
             SetBall();
@@ -20,10 +27,16 @@ namespace Player
             SpawnManager.instance.SpawnBall();
         }
 
+        #endregion
+
+        #region Functions
+
         private void SetBall()
         {
             _ball = BallHelper.Ball;
             _ballPos = _ball.BallTransform.position;
         }
+
+        #endregion
     }
 }

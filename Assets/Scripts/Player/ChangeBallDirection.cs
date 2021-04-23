@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace Player
 {
-    
-    
     public class ChangeBallDirection : MonoBehaviour
     {
+        #region Variables
+
         [SerializeField] private PlayerType thisType;
         [SerializeField] private Transform leftPoint;
         [SerializeField] private Transform midPoint;
@@ -20,6 +20,10 @@ namespace Player
         private Vector3 ballLocalScale;
         
         private bool isEnter=true;
+
+        #endregion
+
+        #region Monobehaviour Events
 
         private void Update()
         {
@@ -37,12 +41,22 @@ namespace Player
             CheckBallPosition();
         }
 
+        #endregion
+
+        #region Functions
+
+        #region Get Ball Variables
+
         private void SetBall()
         {
             ball = BallHelper.Ball;
             ballPosition = BallHelper.Ball.BallTransform.position;
             ballLocalScale = BallHelper.Ball.BallTransform.localScale;
         }
+
+        #endregion
+
+        #region Check Functions
 
         private bool CheckTrigger()
         {
@@ -86,7 +100,11 @@ namespace Player
                 ball.ChangeDirection(degreeVector);
             }
         }
-        
+
+        #endregion
+
+        #region Calculate Functions
+
         private Vector3 CalculateLeftDirection()
         {
             float degree = 165-(75f*-(leftPoint.position.x-ballPosition.x));
@@ -100,8 +118,13 @@ namespace Player
             float radians = degree * (Mathf.PI / 180);
             return new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0);
         }
-        
-        
+
+        #endregion
+
+        #endregion
+
+        #region Gizmos_InActive
+
         private void OnDrawGizmos()
         {
             /*Gizmos.color=Color.green;
@@ -113,5 +136,7 @@ namespace Player
             Gizmos.color=Color.green;
             Gizmos.DrawWireCube(rightPoint.position,new Vector3(0.9f, transform.localScale.y));*/
         }
+
+        #endregion
     }
 }

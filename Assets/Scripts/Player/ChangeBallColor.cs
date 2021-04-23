@@ -7,6 +7,8 @@ namespace Player
 {
     public class ChangeBallColor : MonoBehaviour
     {
+        #region Variable
+
         [SerializeField] private PlayerType thisType;
 
         [SerializeField] private Transform leftPoint;
@@ -15,7 +17,11 @@ namespace Player
         private IBall ball;
         private Vector3 ballPosition;
         private Vector3 ballLocalScale;
-        
+
+        #endregion
+
+        #region Monobehaviour Events
+
         private void Update()
         {
             SetBall();
@@ -25,7 +31,11 @@ namespace Player
             
             ball.ChangeType(thisType);
         }
-        
+
+        #endregion
+
+        #region Functions
+
         private void SetBall()
         {
             ball = BallHelper.Ball;
@@ -45,5 +55,7 @@ namespace Player
 
             return true;
         }
+
+        #endregion
     }
 }
