@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Hole
 {
@@ -18,6 +19,7 @@ namespace Hole
     
     public interface IHole
     {
+        Transform HoleTransform { get; }
         void IncreaseTurn();
     }
 }

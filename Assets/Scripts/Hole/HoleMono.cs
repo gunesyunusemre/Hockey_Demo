@@ -6,9 +6,11 @@ namespace Hole
     public class HoleMono : MonoBehaviour, IHole
     {
         [SerializeField] private int turn=1;
+        public Transform HoleTransform { get; private set; }
         
         private void OnEnable()
         {
+            HoleTransform = transform;
             this.InitializeHole();
             ChangeScale();
         }
@@ -18,6 +20,8 @@ namespace Hole
             this.DestroyHole();
         }
 
+
+        
 
         public void IncreaseTurn()
         {
