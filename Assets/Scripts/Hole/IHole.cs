@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Hole
 {
+    //Bu script deliğe ulaşmamızı sağlar.
+    //Helper iletişim kanalıyken IHole gerekli verileri oluşturmamızı sağlar.
     public static class HoleHelper
     {
         public static List<IHole> HoleList = new List<IHole>();

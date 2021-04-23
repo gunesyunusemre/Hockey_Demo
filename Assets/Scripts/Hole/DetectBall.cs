@@ -8,10 +8,17 @@ namespace Hole
 {
     public class DetectBall : MonoBehaviour
     {
-        
+        //Bu script topun deliğe girip girmediğini denetler.
+
+        #region Variable
+
         private IBall ball;
         private Vector3 ballPosition;
         private Vector3 ballLocalScale;
+
+        #endregion
+
+        #region Monobehaviour Events
 
         private void Update()
         {
@@ -26,6 +33,10 @@ namespace Hole
             Destroy(gameObject);
         }
 
+        #endregion
+
+        #region Functions
+
         private void SetBall()
         {
             ball = BallHelper.Ball;
@@ -38,5 +49,9 @@ namespace Hole
             var dis = Vector2.Distance(transform.position, ballPosition);
             return (dis > transform.localScale.x);
         }
+
+        #endregion
+
+        
     }
 }
