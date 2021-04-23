@@ -1,5 +1,6 @@
 ﻿using System;
 using AI.AIState;
+using Player.Mechanics;
 using UnityEngine;
 
 namespace AI
@@ -7,6 +8,9 @@ namespace AI
     public class AIController : MonoBehaviour
     {
         [SerializeField] private AIData AIData;
+        [SerializeField] private PlayerSpeedData speedData;
+        
+        public PlayerSpeedData SpeedData => speedData;
 
         private AIBaseState currentState;
 
@@ -14,6 +18,8 @@ namespace AI
         {
             get { return currentState; }
         }
+
+        
 
         public readonly AITutorialState TutorialState = new AITutorialState();
         public readonly AIEasyState EasyState = new AIEasyState();
