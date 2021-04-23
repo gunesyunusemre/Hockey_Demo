@@ -2,6 +2,7 @@
 
 namespace AI
 {
+    //Bu script zorluk tiplerini belirleyebilmemizi sağlar
     public enum AIDifficultyType
     {
         Tutorial,
