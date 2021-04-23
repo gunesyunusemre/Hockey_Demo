@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Ball
 {
+    //Bu script find kullanmadan topa ulaşmamızı sağlarken
+    //getcomponent cullanmadanda script içerisine ulaşmamızı sağlar.
+    //Helper iletişim kanalıyken IBall ise scripte olması gereken yapıları bildirir.
+
     public static class BallHelper
     {
         public static IBall Ball;
