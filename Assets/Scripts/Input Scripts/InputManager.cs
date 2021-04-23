@@ -6,9 +6,17 @@ namespace Input_Scripts
 {
     public class InputManager : MonoBehaviour
     {
+        //Bu script input scriptablelarının çalışmasını sağlar.
+
+        #region Variables
+
         [SerializeField] private List<InputTouchPositionData> touchPositionList;
 
         private Camera _camera;
+
+        #endregion
+
+        #region Monobehaviour Events
 
         private void Start()
         {
@@ -28,6 +36,8 @@ namespace Input_Scripts
                 t.Progress(_camera);
             }
         }
+
+        #endregion
         
     }
 }
