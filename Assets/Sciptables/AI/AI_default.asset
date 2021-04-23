@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f603cc9388a488cb647993197a61275, type: 3}
   m_Name: AI_default
   m_EditorClassIdentifier: 
-  difficultyType: 0
+  difficultyType: 4
